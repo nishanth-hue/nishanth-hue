@@ -1,0 +1,356 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1180 610" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradients -->
+    <radialGradient id="bgGlow1" cx="20%" cy="80%" r="50%">
+      <stop offset="0%" stop-color="#7C3AED" stop-opacity="0.15" />
+      <stop offset="100%" stop-color="#030712" stop-opacity="0" />
+      <animate attributeName="cx" values="20%;30%;20%" dur="15s" repeatCount="indefinite" />
+      <animate attributeName="cy" values="80%;70%;80%" dur="15s" repeatCount="indefinite" />
+    </radialGradient>
+    <radialGradient id="bgGlow2" cx="80%" cy="20%" r="50%">
+      <stop offset="0%" stop-color="#22D3EE" stop-opacity="0.12" />
+      <stop offset="100%" stop-color="#030712" stop-opacity="0" />
+      <animate attributeName="cx" values="80%;70%;80%" dur="18s" repeatCount="indefinite" />
+      <animate attributeName="cy" values="20%;30%;20%" dur="18s" repeatCount="indefinite" />
+    </radialGradient>
+    <radialGradient id="bgGlow3" cx="50%" cy="50%" r="40%">
+      <stop offset="0%" stop-color="#10B981" stop-opacity="0.08" />
+      <stop offset="100%" stop-color="#030712" stop-opacity="0" />
+      <animate attributeName="r" values="40%;45%;40%" dur="12s" repeatCount="indefinite" />
+    </radialGradient>
+
+    <!-- Monogram Gradient (Shifting colors) -->
+    <linearGradient id="monogramGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7C3AED">
+        <animate attributeName="stop-color" values="#7C3AED;#22D3EE;#10B981;#7C3AED" dur="10s" repeatCount="indefinite" />
+      </stop>
+      <stop offset="50%" stop-color="#22D3EE">
+        <animate attributeName="stop-color" values="#22D3EE;#10B981;#7C3AED;#22D3EE" dur="10s" repeatCount="indefinite" />
+      </stop>
+      <stop offset="100%" stop-color="#10B981">
+        <animate attributeName="stop-color" values="#10B981;#7C3AED;#22D3EE;#10B981" dur="10s" repeatCount="indefinite" />
+      </stop>
+    </linearGradient>
+
+    <!-- Border Shimmer Gradient -->
+    <linearGradient id="shimmerGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="rgba(124, 58, 237, 0.2)" />
+      <stop offset="30%" stop-color="rgba(34, 211, 238, 0.8)" />
+      <stop offset="70%" stop-color="rgba(16, 185, 129, 0.2)" />
+      <stop offset="100%" stop-color="rgba(124, 58, 237, 0.2)" />
+      <animate attributeName="x1" values="0%;100%;0%" dur="10s" repeatCount="indefinite" />
+      <animate attributeName="y1" values="0%;100%;0%" dur="10s" repeatCount="indefinite" />
+      <animate attributeName="x2" values="100%;0%;100%" dur="10s" repeatCount="indefinite" />
+      <animate attributeName="y2" values="100%;0%;100%" dur="10s" repeatCount="indefinite" />
+    </linearGradient>
+
+    <!-- Background Grid Pattern -->
+    <pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M 30 0 L 0 0 0 30" fill="none" stroke="rgba(255, 255, 255, 0.02)" stroke-width="1" />
+    </pattern>
+
+    <!-- Glass Reflection Gradient -->
+    <linearGradient id="glassReflect" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="rgba(255, 255, 255, 0.08)" />
+      <stop offset="30%" stop-color="rgba(255, 255, 255, 0.03)" />
+      <stop offset="100%" stop-color="rgba(255, 255, 255, 0)" />
+    </linearGradient>
+
+    <!-- Glowing Filters -->
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+    <filter id="glow-subtle" x="-10%" y="-10%" width="120%" height="120%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <!-- Monogram Sequential Clips -->
+    <clipPath id="clipN">
+      <rect x="150" y="200" width="0" height="190">
+        <animate attributeName="width" values="0;100" dur="1s" begin="0.5s" fill="freeze" calcMode="spline" keySplines="0.4 0 0.2 1" />
+      </rect>
+    </clipPath>
+    <clipPath id="clipH">
+      <rect x="250" y="200" width="0" height="190">
+        <animate attributeName="width" values="0;130" dur="1s" begin="1.3s" fill="freeze" calcMode="spline" keySplines="0.4 0 0.2 1" />
+      </rect>
+    </clipPath>
+
+    <!-- Terminal Text Typing Clips (Calibrated for 15s duration, 5 titles) -->
+    <!-- Title 1: AI Developer (12 chars * 13.2px = 158px) -->
+    <clipPath id="clipTitle1">
+      <rect x="510" y="140" width="0" height="40">
+        <animate attributeName="width" values="0;158;158;0;0" keyTimes="0;0.053;0.147;0.187;1" dur="15s" repeatCount="indefinite" />
+      </rect>
+    </clipPath>
+    <!-- Title 2: Full Stack Developer (20 chars * 13.2px = 264px) -->
+    <clipPath id="clipTitle2">
+      <rect x="510" y="140" width="0" height="40">
+        <animate attributeName="width" values="0;0;264;264;0;0" keyTimes="0;0.20;0.253;0.347;0.387;1" dur="15s" repeatCount="indefinite" />
+      </rect>
+    </clipPath>
+    <!-- Title 3: MCA Student (11 chars * 13.2px = 145px) -->
+    <clipPath id="clipTitle3">
+      <rect x="510" y="140" width="0" height="40">
+        <animate attributeName="width" values="0;0;145;145;0;0" keyTimes="0;0.40;0.453;0.547;0.587;1" dur="15s" repeatCount="indefinite" />
+      </rect>
+    </clipPath>
+    <!-- Title 4: Open Source Enthusiast (22 chars * 13.2px = 290px) -->
+    <clipPath id="clipTitle4">
+      <rect x="510" y="140" width="0" height="40">
+        <animate attributeName="width" values="0;0;290;290;0;0" keyTimes="0;0.60;0.653;0.747;0.787;1" dur="15s" repeatCount="indefinite" />
+      </rect>
+    </clipPath>
+    <!-- Title 5: Python Developer (16 chars * 13.2px = 211px) -->
+    <clipPath id="clipTitle5">
+      <rect x="510" y="140" width="0" height="40">
+        <animate attributeName="width" values="0;0;211;211;0;0" keyTimes="0;0.80;0.853;0.947;0.987;1" dur="15s" repeatCount="indefinite" />
+      </rect>
+    </clipPath>
+  </defs>
+
+  <style>
+    .font-sans {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+    .font-mono {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    }
+    .panel {
+      fill: #0F172A;
+      fill-opacity: 0.75;
+    }
+    .text-white { fill: #F8FAFC; }
+    .text-cyan { fill: #22D3EE; }
+    .text-emerald { fill: #10B981; }
+    .text-purple { fill: #A78BFA; }
+    .text-muted { fill: #94A3B8; }
+    .pill {
+      fill: #1E293B;
+      stroke: rgba(255, 255, 255, 0.08);
+      stroke-width: 1;
+      transition: all 0.3s ease;
+    }
+    .pill-text {
+      font-size: 13.5px;
+      font-weight: 500;
+      fill: #E2E8F0;
+    }
+    .shimmer-border {
+      stroke: url(#shimmerGrad);
+      stroke-width: 1.5;
+      fill: none;
+    }
+  </style>
+
+  <!-- Main Canvas Background -->
+  <rect width="1180" height="610" rx="20" fill="#030712" />
+
+  <!-- Radial Background Glows -->
+  <rect width="1180" height="610" rx="20" fill="url(#bgGlow1)" />
+  <rect width="1180" height="610" rx="20" fill="url(#bgGlow2)" />
+  <rect width="1180" height="610" rx="20" fill="url(#bgGlow3)" />
+
+  <!-- Tech Grid Background -->
+  <rect width="1180" height="610" rx="20" fill="url(#grid)" />
+
+  <!-- Floating Particles -->
+  <g>
+    <circle cx="120" cy="520" r="2" fill="#22D3EE" opacity="0.6">
+      <animate attributeName="cy" values="520;120;520" dur="14s" repeatCount="indefinite" />
+      <animate attributeName="opacity" values="0.2;0.8;0.2" dur="14s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="430" cy="180" r="3" fill="#7C3AED" opacity="0.4">
+      <animate attributeName="cy" values="180;480;180" dur="16s" repeatCount="indefinite" />
+      <animate attributeName="opacity" values="0.1;0.6;0.1" dur="16s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="820" cy="500" r="1.5" fill="#10B981" opacity="0.5">
+      <animate attributeName="cy" values="500;200;500" dur="11s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="1060" cy="150" r="2.5" fill="#22D3EE" opacity="0.5">
+      <animate attributeName="cy" values="150;450;150" dur="13s" repeatCount="indefinite" />
+      <animate attributeName="opacity" values="0.3;0.7;0.3" dur="13s" repeatCount="indefinite" />
+    </circle>
+  </g>
+
+  <!-- Global Scanline Sweep -->
+  <rect width="1180" height="3" fill="#22D3EE" opacity="0.06">
+    <animate attributeName="y" values="-10;620" dur="8s" repeatCount="indefinite" />
+  </rect>
+
+  <!-- ================= LEFT PANEL (Cyber Monogram) ================= -->
+  <g>
+    <animateTransform attributeName="transform" type="translate" values="0 0; 0 -10; 0 0" dur="6s" repeatCount="indefinite" />
+    
+    <!-- Left Card Glassmorphism -->
+    <rect x="40" y="40" width="400" height="530" rx="16" class="panel" />
+    <rect x="40" y="40" width="400" height="530" rx="16" fill="url(#glassReflect)" />
+    <rect x="40" y="40" width="400" height="530" rx="16" class="shimmer-border" />
+
+    <!-- HUD Background Tech Geometry -->
+    <circle cx="240" cy="285" r="95" stroke="rgba(34, 211, 238, 0.1)" stroke-width="2" stroke-dasharray="8 8" fill="none">
+      <animateTransform attributeName="transform" type="rotate" from="0 240 285" to="360 240 285" dur="30s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="240" cy="285" r="105" stroke="rgba(124, 58, 237, 0.08)" stroke-width="1.5" stroke-dasharray="20 40" fill="none">
+      <animateTransform attributeName="transform" type="rotate" from="360 240 285" to="0 240 285" dur="25s" repeatCount="indefinite"/>
+    </circle>
+
+    <!-- Cyber Monogram NH Drawing -->
+    <path d="M170 360 V210 L240 360 V210" stroke="url(#monogramGrad)" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" fill="none" filter="url(#glow)" clip-path="url(#clipN)" />
+    <path d="M275 210 V360 M275 285 H345 M345 210 V360" stroke="url(#monogramGrad)" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" fill="none" filter="url(#glow)" clip-path="url(#clipH)" />
+
+    <!-- Cyber HUD Brackets / Corner Anchors -->
+    <path d="M120 170 V140 H150" stroke="#7C3AED" stroke-width="2" fill="none" opacity="0.6" />
+    <path d="M330 140 H360 V170" stroke="#7C3AED" stroke-width="2" fill="none" opacity="0.6" />
+    <path d="M120 400 V430 H150" stroke="#22D3EE" stroke-width="2" fill="none" opacity="0.6" />
+    <path d="M330 430 H360 V400" stroke="#22D3EE" stroke-width="2" fill="none" opacity="0.6" />
+
+    <!-- Micro-Tech Labeling -->
+    <text x="240" y="475" class="font-mono" font-size="12" fill="rgba(255, 255, 255, 0.4)" text-anchor="middle" letter-spacing="4">
+      SYSTEM STATUS: ACTIVE
+    </text>
+    <text x="240" y="495" class="font-mono" font-size="10" fill="#10B981" text-anchor="middle" letter-spacing="1">
+      COGNITIVE ENGINE v3.5
+    </text>
+  </g>
+
+  <!-- ================= RIGHT PANEL (Terminal Shell) ================= -->
+  <rect x="480" y="40" width="660" height="530" rx="16" class="panel" />
+  <rect x="480" y="40" width="660" height="530" rx="16" fill="url(#glassReflect)" />
+  <rect x="480" y="40" width="660" height="530" rx="16" class="shimmer-border" />
+
+  <!-- macOS Style Window Header buttons -->
+  <circle cx="515" cy="70" r="6.5" fill="#EF4444" opacity="0.9" />
+  <circle cx="535" cy="70" r="6.5" fill="#F59E0B" opacity="0.9" />
+  <circle cx="555" cy="70" r="6.5" fill="#10B981" opacity="0.9" />
+  <text x="810" y="75" class="font-mono" font-size="12" fill="rgba(255, 255, 255, 0.3)" text-anchor="middle">
+    bash - nishanth@cognition:~
+  </text>
+  <line x1="480" y1="95" x2="1140" y2="95" stroke="rgba(255, 255, 255, 0.08)" stroke-width="1.5" />
+
+  <!-- Greeting -->
+  <text x="510" y="132" class="font-sans text-white" font-size="28" font-weight="700">
+    Hi 👋, I'm Nishanth
+  </text>
+
+  <!-- Typing Title Header Panel (with 5 rotating titles) -->
+  <g>
+    <text x="510" y="172" class="font-mono text-cyan" font-size="22" font-weight="700" clip-path="url(#clipTitle1)">
+      AI Developer
+    </text>
+    <text x="510" y="172" class="font-mono text-cyan" font-size="22" font-weight="700" clip-path="url(#clipTitle2)">
+      Full Stack Developer
+    </text>
+    <text x="510" y="172" class="font-mono text-cyan" font-size="22" font-weight="700" clip-path="url(#clipTitle3)">
+      MCA Student
+    </text>
+    <text x="510" y="172" class="font-mono text-cyan" font-size="22" font-weight="700" clip-path="url(#clipTitle4)">
+      Open Source Enthusiast
+    </text>
+    <text x="510" y="172" class="font-mono text-cyan" font-size="22" font-weight="700" clip-path="url(#clipTitle5)">
+      Python Developer
+    </text>
+
+    <!-- Blinking / Typing Monospace Cursor -->
+    <rect y="152" width="10" height="22" class="text-cyan" filter="url(#glow-subtle)">
+      <animate attributeName="x" 
+               values="510;668;668;510;510;510;774;774;510;510;510;655;655;510;510;510;800;800;510;510;510;721;721;510;510" 
+               keyTimes="0;0.053;0.147;0.187;0.20;0.20;0.253;0.347;0.387;0.40;0.40;0.453;0.547;0.587;0.60;0.60;0.653;0.747;0.787;0.80;0.80;0.853;0.947;0.987;1" 
+               dur="15s" 
+               repeatCount="indefinite" />
+      <animate attributeName="opacity" 
+               values="1;0;1;0;1" 
+               keyTimes="0;0.25;0.5;0.75;1" 
+               dur="1s" 
+               repeatCount="indefinite" />
+    </rect>
+  </g>
+
+  <!-- ================= Terminal Key Info (Sequential Reveal) ================= -->
+  <g opacity="0">
+    <animate attributeName="opacity" to="1" dur="0.8s" begin="2.2s" fill="freeze" />
+    <text x="510" y="215" class="font-mono text-purple" font-size="14" font-weight="700">$ location</text>
+    <text x="510" y="235" class="font-sans text-white" font-size="15" font-weight="500">India</text>
+  </g>
+
+  <g opacity="0">
+    <animate attributeName="opacity" to="1" dur="0.8s" begin="3s" fill="freeze" />
+    <text x="510" y="275" class="font-mono text-purple" font-size="14" font-weight="700">$ education</text>
+    <text x="510" y="295" class="font-sans text-white" font-size="15" font-weight="500">Master of Computer Applications (MCA)</text>
+  </g>
+
+  <g opacity="0">
+    <animate attributeName="opacity" to="1" dur="0.8s" begin="3.8s" fill="freeze" />
+    <text x="510" y="335" class="font-mono text-purple" font-size="14" font-weight="700">$ current-focus</text>
+    <text x="510" y="355" class="font-sans text-white" font-size="14" font-weight="500">
+      • AI Lung Cancer Detection using CNN
+    </text>
+    <text x="510" y="375" class="font-sans text-white" font-size="14" font-weight="500">
+      • Cloud Deployment &amp; Orchestration (CMM Switcher)
+    </text>
+  </g>
+
+  <!-- ================= Skills Grid Section (Pills) ================= -->
+  <g opacity="0">
+    <animate attributeName="opacity" to="1" dur="1s" begin="4.6s" fill="freeze" />
+    
+    <text x="510" y="415" class="font-mono text-emerald" font-size="14" font-weight="700">$ load-skills</text>
+    
+    <!-- Skills Row 1 -->
+    <g transform="translate(510, 430)">
+      <rect width="80" height="30" rx="8" class="pill" />
+      <text x="40" y="20" class="pill-text" text-anchor="middle">Python</text>
+    </g>
+    <g transform="translate(600, 430)">
+      <rect width="110" height="30" rx="8" class="pill" />
+      <text x="55" y="20" class="pill-text" text-anchor="middle">TensorFlow</text>
+    </g>
+    <g transform="translate(720, 430)">
+      <rect width="85" height="30" rx="8" class="pill" />
+      <text x="42.5" y="20" class="pill-text" text-anchor="middle">FastAPI</text>
+    </g>
+    <g transform="translate(815, 430)">
+      <rect width="85" height="30" rx="8" class="pill" />
+      <text x="42.5" y="20" class="pill-text" text-anchor="middle">Node.js</text>
+    </g>
+
+    <!-- Skills Row 2 -->
+    <g transform="translate(510, 470)">
+      <rect width="75" height="30" rx="8" class="pill" />
+      <text x="37.5" y="20" class="pill-text" text-anchor="middle">React</text>
+    </g>
+    <g transform="translate(595, 470)">
+      <rect width="85" height="30" rx="8" class="pill" />
+      <text x="42.5" y="20" class="pill-text" text-anchor="middle">Next.js</text>
+    </g>
+    <g transform="translate(690, 470)">
+      <rect width="115" height="30" rx="8" class="pill" />
+      <text x="57.5" y="20" class="pill-text" text-anchor="middle">Git &amp; GitHub</text>
+    </g>
+  </g>
+
+  <!-- ================= Terminal Status Bar Footer ================= -->
+  <g opacity="0">
+    <animate attributeName="opacity" to="1" dur="0.8s" begin="5.4s" fill="freeze" />
+    <line x1="480" y1="520" x2="1140" y2="520" stroke="rgba(255, 255, 255, 0.08)" stroke-width="1.5" />
+    
+    <!-- Console Status Info -->
+    <text x="510" y="545" class="font-mono text-muted" font-size="11">
+      Processes: 2 active, 0 suspended
+    </text>
+    <text x="810" y="545" class="font-mono text-muted" font-size="11" text-anchor="middle" opacity="0.6">
+      github.com/nishanth-hue
+    </text>
+    <text x="1110" y="545" class="font-mono text-muted" font-size="11" text-anchor="end">
+      UTF-8
+    </text>
+  </g>
+</svg>
